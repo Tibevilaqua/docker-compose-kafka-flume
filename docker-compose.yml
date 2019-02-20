@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  flume:
+    hostname: flume
+    build: ./flume
+    ports:
+      - "1234:1234"
+
+  kafka:
+    hostname: kafka
+    build: ./kafka
+    ports:
+      - "2181:2181"
+      - "9092:9092"

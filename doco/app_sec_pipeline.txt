@@ -1,0 +1,29 @@
+@startuml
+
+title Flume + Kafka & Zookeeper
+header Flume + Kafka & Zookeeper
+
+skinparam BoxPadding 10
+
+actor "Developer (Terminal 1)"
+
+box "Flume Container" #lightblue
+    participant "Source"
+    participant "Channel"
+    participant "Sink"
+
+end box
+
+Box "Kafka + Zookeeper Container" #lightskyblue
+     participant "Kafka"
+    actor "Developer (Terminal 2)"
+end Box
+
+"Developer (Terminal 2)" -> "Kafka": Subscribe to the topic test
+"Developer (Terminal 1)" -> "Source": Send HTTP request
+"Source" -> "Channel": Send message
+"Channel" -> "Sink": Send message
+"Sink" -> "Kafka": Send message to the topic test
+"Kafka" -> "Developer (Terminal 2)": Send message
+
+@enduml
