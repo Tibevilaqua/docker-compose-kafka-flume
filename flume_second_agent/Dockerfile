@@ -26,11 +26,11 @@ RUN \
   rm -f /tmp/apache-flume-* && \
   rm -f /tmp/KEYS
 
-ADD files/hello-world.conf /opt/flume/hello-world.conf
+ADD files/second_flume_agent.conf /opt/flume/second_flume_agent.conf
 
 EXPOSE 1234
 
 WORKDIR /opt/flume 
 
 ENTRYPOINT ["bin/flume-ng", "agent"]
-CMD ["-n", "agent", "-c", "conf", "-f", "hello-world.conf", "-Dflume.root.logger=INFO,console"]
+CMD ["-n", "agent", "-c", "conf", "-f", "second_flume_agent.conf", "-Dflume.root.logger=INFO,console"]

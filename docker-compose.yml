@@ -6,6 +6,14 @@ services:
     build: ./flume
     ports:
       - "1234:1234"
+    depends_on:
+      - kafka
+
+  flume_second_agent:
+    hostname: flume_second_agent
+    build: ./flume_second_agent
+    depends_on:
+      - kafka
 
   kafka:
     hostname: kafka
