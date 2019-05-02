@@ -17,7 +17,13 @@ How to get everything working
 
 6 - Look at the terminal you opened during the 4th step.
 
-
 ## Sequence
 
 ![Sequence](doco/app_sec_pipeline.png?raw=true)
+
+
+## Commands
+
+List all kafka topics
+
+/opt/kafka_2.12-2.1.0/bin/kafka-topics.sh --list --zookeeper localhost:2181
